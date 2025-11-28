@@ -53,3 +53,4 @@ Once you have the repository set up, you can quickly update by:
 - Set up custom domain (thinkoff.app)
 - Add analytics
 - Create more detailed pages
+ 
