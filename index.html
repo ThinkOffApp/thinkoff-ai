@@ -2,177 +2,896 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ThinkOff - AI Comparison App</title>
-  <style>
-    :root {
-      --primary: #FF00FF;
-      --bg: #0A0A0A;
-      --text: #ffffff;
-      --card-bg: rgba(255, 255, 255, 0.05);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinkOff.ai - Your Personal AI Intelligence Guide | Compare GPT-5, Claude, Gemini & More</title>
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+    <meta name="description"
+        content="The next stage of AI. Compare 7+ AI models side-by-side with expert judge evaluation. Full Mode for effortless use or Local Mode for complete privacy. Discover which AI truly understands you best.">
+    <meta name="keywords"
+        content="AI comparison, GPT-5, Claude Opus 4, Gemini 2.5, AI judge, compare AI models, best AI, AI intelligence, local AI, privacy AI">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H0RCT79PEQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 40px 0;
-    }
+        gtag('config', 'G-H0RCT79PEQ');
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: var(--primary);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ff1493;
+            min-height: 100vh;
+        }
 
-    .hero {
-      text-align: center;
-      padding: 80px 0;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      background: linear-gradient(to right, #fff, #ccc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        header {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
 
-    .subtitle {
-      font-size: 20px;
-      color: #888;
-      max-width: 600px;
-      margin: 0 auto 40px;
-    }
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
 
-    .download-btn {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 16px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
-    }
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
 
-    .download-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
-    }
+        .cta-button {
+            display: inline-block;
+            background: #ffa500;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+        }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin: 80px 0;
-    }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.6);
+        }
 
-    .feature-card {
-      background: var(--card-bg);
-      padding: 30px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+        .features {
+            background: white;
+            padding: 80px 0;
+        }
 
-    .feature-card h3 {
-      color: var(--primary);
-      margin-top: 0;
-    }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
 
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 80px;
-      color: #666;
-    }
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 3px solid #ff1493;
+            background: white;
+        }
 
-    footer a {
-      color: #888;
-      text-decoration: none;
-      margin: 0 10px;
-    }
+        .feature-card:nth-child(2) {
+            border-color: #ff69b4;
+        }
 
-    footer a:hover {
-      color: var(--primary);
-    }
-  </style>
+        .feature-card:nth-child(3) {
+            border-color: #32cd32;
+        }
+
+        .feature-card:nth-child(4) {
+            border-color: #ffa500;
+        }
+
+        .feature-card:nth-child(5) {
+            border-color: #ffff00;
+        }
+
+        .feature-card:nth-child(6) {
+            border-color: #32cd32;
+        }
+
+        .feature-card:nth-child(7) {
+            border-color: #667eea;
+        }
+
+        .feature-card:nth-child(8) {
+            border-color: #764ba2;
+        }
+
+        .feature-card:nth-child(9) {
+            border-color: #ff1493;
+        }
+
+        .feature-card:nth-child(10) {
+            border-color: #00ced1;
+        }
+
+        .feature-card:nth-child(11) {
+            border-color: #ff69b4;
+        }
+
+        .feature-card:nth-child(12) {
+            border-color: #32cd32;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-desc {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .screenshots {
+            background: #ff69b4;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .screenshot {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.05);
+        }
+
+        .providers {
+            background: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .provider-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .provider-logo {
+            background: #32cd32;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+        }
+
+        .provider-logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 20, 147, 0.5);
+        }
+
+        .testimonials {
+            background: #ffa500;
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .testimonial {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: #32cd32;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes neon-pulse {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.6)) drop-shadow(0 0 20px rgba(255, 0, 255, 0.4));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 0, 255, 0.6));
+            }
+        }
+
+        .animate-neon-pulse {
+            animation: neon-pulse 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+
+        .animate-neon-pulse:hover {
+            animation: none;
+            filter: drop-shadow(0 0 25px rgba(255, 0, 255, 1)) drop-shadow(0 0 50px rgba(255, 0, 255, 0.8));
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container">
     <header>
-      <a href="#" class="logo">
-        💗 ThinkOff
-      </a>
-      <nav>
-        <a href="https://thinkoff.app" style="color: white; text-decoration: none; margin-left: 20px;">Web App</a>
-      </nav>
+        <div class="container">
+            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px; gap: 20px;">
+                <img src="app-icon.png" alt="ThinkOff Heart" class="animate-neon-pulse"
+                    style="width: 80px; height: 80px; object-fit: contain;">
+                <h1 class="logo">ThinkOff</h1>
+                <div style="font-size: 4rem;">🤖</div>
+            </div>
+            <p class="tagline">Your Personal AI Intelligence Guide</p>
+            <p
+                style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto;">
+                The next stage of AI is here. Compare the world's best AI models side-by-side and let an expert judge
+                reveal which one truly understands you best.
+                Chat with @thinkoff for instant support, choose Single Judge or Panel of Judges, and experience AI
+                comparison like never before.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://thinkoff.app" class="cta-button">Launch Web App</a>
+                <a id="download-btn" href="#" class="cta-button" style="background: #333;">Download App</a>
+            </div>
+        </div>
     </header>
 
-    <section class="hero">
-      <h1>The Ultimate AI Comparison Tool</h1>
-      <p class="subtitle">Compare responses from GPT-4, Claude 3, Gemini, and more side-by-side. Vote for the best
-        answer and find the perfect AI for your needs.</p>
+    <script>
+        // Detect device and set appropriate download links
+        (function () {
+            const isAndroid = /Android/i.test(navigator.userAgent);
+            const playStoreLink = 'https://play.google.com/store/apps/details?id=com.chatwithlocalai.app';
 
-      <a href="https://github.com/ThinkOffApp/thinkoff-ai/releases/latest/download/app-release.apk"
-        class="download-btn">
-        Download for Android
-      </a>
+            // Update all download buttons when DOM is ready
+            document.addEventListener('DOMContentLoaded', function () {
+                const buttons = [
+                    document.getElementById('download-btn'),
+                    document.getElementById('download-btn-bottom')
+                ];
 
-      <p style="margin-top: 20px; font-size: 14px; color: #666;">
-        Latest Version: v17.44 (Production)
-      </p>
+                buttons.forEach(function (btn) {
+                    if (btn) {
+                        btn.href = playStoreLink;
+                        if (isAndroid) {
+                            btn.textContent = 'Download for Android';
+                        } else {
+                            btn.textContent = 'Get Android App';
+                        }
+                    }
+                });
+            });
+        })();
+    </script>
+
+    <style>
+        /* Interactive Infographic Styles */
+        .infographic-section {
+            padding: 40px 0 20px 0;
+            background: white;
+            overflow: hidden;
+        }
+
+        .infographic-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .flow-diagram {
+                flex-direction: column;
+                gap: 40px;
+            }
+        }
+
+        .step-node {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .node-icon {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: 4px solid #f0f0f0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-node:hover .node-icon {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.2);
+            border-color: #ff1493;
+        }
+
+        .node-label {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .node-desc {
+            font-size: 0.9rem;
+            color: #666;
+            max-width: 200px;
+        }
+
+        /* Connecting Lines */
+        .connector {
+            flex: 1;
+            height: 4px;
+            background: #f0f0f0;
+            position: relative;
+            margin: 0 20px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .connector {
+                width: 4px;
+                height: 50px;
+                margin: 0;
+            }
+        }
+
+        .connector-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff1493, #ffa500);
+            transform: translateX(-100%);
+            animation: flow 2s infinite linear;
+        }
+
+        @media (max-width: 768px) {
+            .connector-fill {
+                transform: translateY(-100%);
+                background: linear-gradient(180deg, #ff1493, #ffa500);
+            }
+        }
+
+        @keyframes flow {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            @keyframes flow {
+                0% {
+                    transform: translateY(-100%);
+                }
+
+                100% {
+                    transform: translateY(100%);
+                }
+            }
+        }
+
+        /* Specific Node Styles */
+        .node-user .node-icon {
+            border-color: #ff1493;
+            color: #ff1493;
+        }
+
+        .node-ai .node-icon {
+            border-color: #32cd32;
+            color: #32cd32;
+        }
+
+        .node-judge .node-icon {
+            border-color: #ffa500;
+            color: #ffa500;
+        }
+
+        /* Floating Bubbles for AI Node */
+        .ai-bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            animation: float 3s infinite ease-in-out;
+            opacity: 0;
+        }
+
+        .bubble:nth-child(1) {
+            width: 40px;
+            height: 40px;
+            top: -20px;
+            right: -10px;
+            animation-delay: 0s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 30px;
+            height: 30px;
+            top: 50%;
+            right: -30px;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 35px;
+            height: 35px;
+            bottom: -10px;
+            left: -10px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        /* Winner Trophy Animation */
+        .trophy-icon {
+            position: absolute;
+            top: -30px;
+            right: -20px;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(10deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(-10deg);
+            }
+        }
+    </style>
+
+    <section class="infographic-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #333;">
+                The ThinkOff Flow
+            </h2>
+
+            <div class="infographic-container" style="text-align: center;">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="images/user_journey_vertical.png">
+                    <source media="(min-width: 769px)" srcset="images/user_journey_diagram.jpg">
+                    <img src="images/user_journey_diagram.jpg" alt="Basic ThinkOff Use Case Example"
+                        style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 4px solid #f0f0f0;">
+                </picture>
+            </div>
+        </div>
     </section>
 
     <section class="features">
-      <div class="feature-card">
-        <h3>🤖 Multi-Model Arena</h3>
-        <p>Chat with multiple top-tier AI models simultaneously. Compare their reasoning, creativity, and coding skills
-          in real-time.</p>
-      </div>
-      <div class="feature-card">
-        <h3>🔒 Privacy First</h3>
-        <p>Choose between Local Mode (your keys, your data) or Full Mode (managed credits). Your privacy is our
-          priority.</p>
-      </div>
-      <div class="feature-card">
-        <h3>⚖️ AI Judge</h3>
-        <p>Let an impartial AI Judge evaluate the responses and declare a winner based on objective criteria.</p>
-      </div>
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px; color: #333;">
+                A Groundbreaking New View Into AI Intelligence
+            </h2>
+            <p
+                style="text-align: center; font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                <strong>ThinkOff is the next stage of AI.</strong> Instead of hoping one model has the right answer,
+                get instant comparisons from the world's best AI models—GPT-5, Claude Opus 4, Gemini 2.5, Grok 4, and
+                more—
+                with an expert AI judge revealing which response truly excels. Choose Single Judge for one expert
+                opinion,
+                or Panel of Judges where each AI evaluates all others. Chat with @thinkoff for instant support.
+                It's like having a personal intelligence guide that shows you not just answers, but <em>the best
+                    answer</em>.
+            </p>
+
+            <div
+                style="text-align: center; margin: 40px 0; padding: 30px; background: #f8f9fa; border-radius: 15px; border: 3px solid #ff1493;">
+                <h3 style="font-size: 1.8rem; color: #333; margin-bottom: 15px;">🏠 Use Your Local AI</h3>
+                <p style="font-size: 1.1rem; color: #666; max-width: 800px; margin: 0 auto;">
+                    <strong>Run your own AI models locally</strong> and use them as both providers and judges!
+                    Compare your local AI against cloud providers like GPT-5, Claude, and Gemini.
+                    Your local AI can even judge the competition - complete privacy and control.
+                </p>
+            </div>
+
+            <div
+                style="text-align: center; margin: 40px 0; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 15px;">👥 Single Judge or Panel of Judges</h3>
+                <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto; opacity: 0.95;">
+                    <strong>Two powerful evaluation modes:</strong> Use Single Judge mode for one expert AI to evaluate
+                    all responses with detailed reasoning.
+                    Or choose Panel of Judges mode where each AI provider anonymously judges all other responses, giving
+                    you comprehensive rankings
+                    from multiple perspectives. Perfect for getting the most thorough evaluation possible.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Full Mode - Effortless AI</h3>
+                    <p class="feature-desc">Zero setup. Just ask your question and get instant comparisons from 7+
+                        cutting-edge AI models with expert judge evaluation. Pay only for what you use.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Local Mode - Total Privacy</h3>
+                    <p class="feature-desc">Use your own API keys and local AI models. Complete privacy, full control,
+                        perfect for developers. Your data never leaves your device.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3 class="feature-title">Google Sign-In</h3>
+                    <p class="feature-desc">Link your Google account for seamless authentication across devices. Your
+                        account persists across sessions with automatic sign-in.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚖️</div>
+                    <h3 class="feature-title">Expert AI Judge</h3>
+                    <p class="feature-desc">An AI judge evaluates all responses with detailed reasoning and rankings.
+                        Choose from 4 judge personalities: Neutral, Strict Scientist, Funny Critic, or Empathetic
+                        Reviewer.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Single Judge or Panel of Judges</h3>
+                    <p class="feature-desc">Choose Single Judge mode for one expert evaluation, or Panel of Judges mode
+                        where each AI provider judges all others anonymously. Get comprehensive rankings from multiple
+                        perspectives.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">Chat with @thinkoff</h3>
+                    <p class="feature-desc">Get instant help from ThinkOff's customer service AI. Just type @thinkoff in
+                        your message to chat directly with ThinkOff for support, questions, or guidance.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">7+ AI Providers</h3>
+                    <p class="feature-desc">Compare OpenAI (GPT-5), Anthropic (Claude Opus 4), Google (Gemini 2.5),
+                        Grok, Mistral, Meta, Perplexity, and your own local models—all in one place.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🖼️</div>
+                    <h3 class="feature-title">Multimodal Intelligence</h3>
+                    <p class="feature-desc">Upload images and see how different vision models analyze them. Compare
+                        responses to text, images, and discover each AI's unique strengths.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Anonymous Data Sharing</h3>
+                    <p class="feature-desc">Opt-in to share anonymous usage patterns (never your questions or API keys)
+                        to help build smarter auto-routing and provider recommendations.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3 class="feature-title">Intelligent Insights</h3>
+                    <p class="feature-desc">See which AI excels at creative writing, coding, analysis, or visual tasks.
+                        Learn each model's personality and find your perfect match.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Transparent Costs</h3>
+                    <p class="feature-desc">Real-time budget tracking with exact token counts and costs. Know precisely
+                        what you're spending on each AI interaction.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌙</div>
+                    <h3 class="feature-title">Dark Mode</h3>
+                    <p class="feature-desc">Switch to dark mode for comfortable viewing in low-light conditions. Easy
+                        toggle in settings for your preferred theme.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3 class="feature-title">Audio Support</h3>
+                    <p class="feature-desc">Record audio messages and get AI responses. Full multimodal support for
+                        text, images, and audio in your conversations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 80px 0; color: white;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">
+                How ThinkOff Works
+            </h2>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div
+                    style="text-align: center; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">1️⃣</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Ask Your Question</h3>
+                    <p style="opacity: 0.9;">Type, upload an image, or record audio. Any question, any format.</p>
+                </div>
+
+                <div
+                    style="text-align: center; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">2️⃣</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Parallel AI Queries</h3>
+                    <p style="opacity: 0.9;">Your question goes to multiple AI models simultaneously—GPT, Claude,
+                        Gemini, and more.</p>
+                </div>
+
+                <div
+                    style="text-align: center; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">3️⃣</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Expert Judge Evaluation</h3>
+                    <p style="opacity: 0.9;">Choose Single Judge for one expert evaluation, or Panel of Judges where
+                        each AI provider judges all others anonymously. Get comprehensive rankings and detailed
+                        reasoning.</p>
+                </div>
+
+                <div
+                    style="text-align: center; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px);">
+                    <div style="font-size: 3rem; margin-bottom: 15px;">4️⃣</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px;">See The Winner</h3>
+                    <p style="opacity: 0.9;">Get the best answer highlighted with scores, rankings, and detailed
+                        reasoning. Know exactly which AI understood you best.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="screenshots">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #333;">See ThinkOff in Action</h2>
+            <p
+                style="font-size: 1.2rem; color: #666; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Watch multiple AI models compete side-by-side. See the expert judge evaluate each response.
+                Discover which AI truly excels at your specific question. This is intelligence comparison unlike
+                anything before.
+            </p>
+
+            <div class="screenshot-grid">
+                <!-- Screenshots from your GitHub repository -->
+                <img src="screenshots/Screenshot_1" alt="" class="screenshot">
+                <img src="screenshots/Screenshot_2" class="screenshot">
+                <img src="screenshots/Screenshot_3" class="screenshot">
+                <img src="screenshots/Screenshot_4" class="screenshot">
+                <img src="screenshots/Screenshot_5" class="screenshot">
+                <img src="screenshots/Screenshot_6" class="screenshot">
+            </div>
+        </div>
+    </section>
+
+    <section class="providers">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #333;">7+ World-Class AI Models</h2>
+            <p style="font-size: 1.2rem; color: #666; margin-bottom: 20px;">
+                All the cutting-edge models in one place. Compare them instantly and let the judge reveal which one
+                understands you best.
+            </p>
+
+            <div class="provider-logos">
+                <div class="provider-logo">OpenAI GPT-5</div>
+                <div class="provider-logo">Google Gemini</div>
+                <div class="provider-logo">Grok</div>
+                <div class="provider-logo">Claude</div>
+                <div class="provider-logo">Mistral</div>
+                <div class="provider-logo">Meta Llama</div>
+                <div class="provider-logo">Local AI</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 40px;">What Users Say</h2>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <img src="images/hemulimaa.jpg" alt="ThinkOff Party"
+                    style="max-width: 300px; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            </div>
+
+            <div class="testimonial">
+                "ThinkOff gives me a completely new perspective on AI. Instead of blindly trusting one model, I see
+                exactly how each one thinks—and which one gets it right."
+            </div>
+            <div class="testimonial-author">- Alpha Tester</div>
+
+            <div class="testimonial">
+                "Local Mode is perfect for my work. Full privacy with my own API keys, but I still get the powerful
+                comparison and judge features. Best of both worlds."
+            </div>
+            <div class="testimonial-author">- Developer User</div>
+        </div>
+    </section>
+
+
+
+    <section
+        style="background: linear-gradient(135deg, #FF00FF 0%, #FF69B4 100%); padding: 80px 0; text-align: center; color: white;">
+        <div class="container">
+            <h2 style="font-size: 2.8rem; margin-bottom: 20px;">
+                Ready to Experience the Next Stage of AI?
+            </h2>
+            <p
+                style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.95; max-width: 700px; margin-left: auto; margin-right: auto;">
+                Stop settling for one AI's perspective. See how the best models compare,
+                let an expert judge guide you, and discover which AI truly gets you.
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://thinkoff.app" class="cta-button" style="font-size: 1.2rem; padding: 18px 40px;">Launch
+                    Web App</a>
+                <a id="download-btn-bottom" href="#" class="cta-button"
+                    style="font-size: 1.2rem; padding: 18px 40px; background: #333;">Download App</a>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+                Free to try • Full Mode or Local Mode • Android
+            </p>
+        </div>
     </section>
 
     <footer>
-      <p>&copy; 2025 ThinkOff. All rights reserved.</p>
-      <p>
-        <a href="/privacy-policy.html">Privacy Policy</a> |
-        <a href="mailto:hello@thinkoff.app">Contact</a>
-      </p>
+        <div class="container">
+            <h3 style="margin-bottom: 20px;">🤖 ThinkOff</h3>
+            <p style="margin-bottom: 20px; color: #ccc;">Your Personal AI Intelligence Guide</p>
+
+            <div class="footer-links">
+                <a href="https://thinkoffapp.github.io/thinkoff-privacy/">Privacy Policy</a>
+                <a href="mailto:hello@thinkoff.app">Contact</a>
+                <a href="https://x.com/thinkoffapp">X (Twitter)</a>
+                <a href="https://github.com/thinkoffapp">GitHub</a>
+            </div>
+
+            <p style="color: #888; font-size: 0.9rem; margin-top: 20px;">
+                © 2024 ThinkOff. Made with ❤️ for AI enthusiasts.
+            </p>
+        </div>
     </footer>
-  </div>
 </body>
 
 </html>
