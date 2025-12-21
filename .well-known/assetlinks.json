@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.chatwithlocalai.app",
+      "sha256_cert_fingerprints": [
+        "D0:5A:F2:DA:D5:60:31:83:5C:4B:E8:1D:54:EA:36:09:AD:16:59:6E:B8:1F:C5:43:52:F6:EE:A8:42:9E:6C:9D"
+      ]
+    }
+  }
+]
